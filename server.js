@@ -1,24 +1,20 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
-
-
-
+import catRoutes from './routes/cat.js';
 // configure dotenv
 dotenv.config();
 const PORT = process.env.PORT || 5009;
 
-
-
 // initialize express
 const app = express();
 
-// parse body 
+// parse body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // use routes
-
+app.use(catRoutes);
 
 // error
 app.use((err, req, res, next) => {
